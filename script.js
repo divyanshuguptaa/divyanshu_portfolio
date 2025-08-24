@@ -197,15 +197,29 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Typing animation for hero title
+// FIXED: Typing animation for hero title - This was causing the HTML rendering issue
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
     
     function type() {
         if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
+            // Check if we're at the start of an HTML tag
+            if (text.charAt(i) === '<') {
+                // Find the end of the tag
+                let tagEnd = text.indexOf('>', i);
+                if (tagEnd !== -1) {
+                    // Add the entire tag at once
+                    element.innerHTML += text.substring(i, tagEnd + 1);
+                    i = tagEnd + 1;
+                } else {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                }
+            } else {
+                element.innerHTML += text.charAt(i);
+                i++;
+            }
             setTimeout(type, speed);
         }
     }
@@ -213,14 +227,19 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Initialize typing animation when page loads
+// BETTER SOLUTION: Remove the typing animation entirely to avoid HTML parsing issues
 document.addEventListener('DOMContentLoaded', () => {
+    // Don't use typing animation - just let the HTML render normally
+    // The typing animation was causing the HTML to be treated as plain text
+    
+    // If you want typing effect, use this approach instead:
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        // Start typing animation after a short delay
+        // Just add a fade-in effect instead of typing
+        heroTitle.style.opacity = '0';
         setTimeout(() => {
-            typeWriter(heroTitle, originalText, 50);
+            heroTitle.style.transition = 'opacity 1s ease-in';
+            heroTitle.style.opacity = '1';
         }, 500);
     }
 });
@@ -256,27 +275,6 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
-// Add active link styles
-const style = document.createElement('style');
-style.textContent = `
-    .nav-link.active {
-        color: #2563eb !important;
-        font-weight: 600;
-    }
-    
-    .nav-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: #2563eb;
-        border-radius: 1px;
-    }
-`;
-document.head.appendChild(style);
 
 // Counter animation for stats
 function animateCounter(element, target, duration = 2000) {
@@ -370,20 +368,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-// Add ripple animation styles
-const rippleStyle = document.createElement('style');
-rippleStyle.textContent = `
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-    
-    .btn {
-        position: relative;
-        overflow: hidden;
-    }
-`;
-document.head.appendChild(rippleStyle); 
