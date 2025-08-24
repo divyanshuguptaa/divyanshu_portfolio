@@ -106,10 +106,13 @@ body {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
+    color: white;
 }
 
 .highlight {
     color: #fbbf24;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
 }
 
 .hero-subtitle {
