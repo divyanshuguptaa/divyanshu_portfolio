@@ -183,26 +183,7 @@ body {
     transform: translateY(-2px);
 }
 
-.hero-stats {
-    display: flex;
-    gap: 2rem;
-}
 
-.stat {
-    text-align: center;
-}
-
-.stat-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fbbf24;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: #d1d5db;
-}
 
 .hero-image {
     display: flex;
