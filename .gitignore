@@ -33,4 +33,10 @@ logs/
 *.log
 
 
+# Flight Delay large files and caches
+flight delay/flight_data_2024.csv
+flight delay/__pycache__/
+*.pyc
+
+
 

@@ -3,157 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Divyanshu Gupta - Data Analytics Engineer specializing in AWS, Azure, Python, and machine learning">
-    <meta name="keywords" content="data analytics, machine learning, AWS, Azure, Python, business intelligence">
-    <title>Divyanshu Gupta - Data Analytics Engineer | Portfolio</title>
+    <meta name="description" content="Divyanshu Gupta - Data Analytics Engineer with 7+ years experience in AWS, Azure, Python, and Business Intelligence">
+    <title>Divyanshu Gupta | Data Analytics Engineer</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom CSS - CORRECTED TO styles.css -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Animated Background CSS -->
-    <link rel="stylesheet" href="animated-background.css">
 </head>
 <body>
-    <!-- Animated Data Visualization Background -->
-    <div class="data-viz-background">
+    
+    <!-- 3D Animated Background -->
+    <div class="animated-bg">
+        <div class="grid-floor"></div>
+        
+        <!-- Left Side: Bar Chart -->
         <div class="bar-chart">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+            <div class="bar" style="--height: 120px; --delay: 0s;"></div>
+            <div class="bar" style="--height: 180px; --delay: 0.2s;"></div>
+            <div class="bar" style="--height: 140px; --delay: 0.4s;"></div>
+            <div class="bar" style="--height: 200px; --delay: 0.6s;"></div>
+            <div class="bar" style="--height: 160px; --delay: 0.8s;"></div>
         </div>
+        
+        <!-- Top Left: Pie Chart -->
         <div class="pie-chart"></div>
-        <div class="line-chart">
-            <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                <polyline points="0,100 50,80 100,90 150,60 200,70 250,40 300,50" fill="none" stroke="rgba(100, 255, 218, 0.3)" stroke-width="3"></polyline>
-                <polyline points="0,120 50,100 100,110 150,85 200,95 250,70 300,80" fill="none" stroke="rgba(255, 167, 38, 0.3)" stroke-width="3"></polyline>
+        
+        <!-- Right Side: Line Graph -->
+        <div class="line-graph">
+            <svg viewBox="0 0 300 150">
+                <polyline points="0,100 50,80 100,90 150,60 200,70 250,40 300,50" 
+                          fill="none" stroke="#6366f1" stroke-width="4"/>
+                <polyline points="0,120 50,100 100,110 150,80 200,90 250,60 300,70" 
+                          fill="none" stroke="#a78bfa" stroke-width="4"/>
             </svg>
         </div>
-        <div class="data-point"></div>
-        <div class="data-point"></div>
-        <div class="data-point"></div>
-        <div class="data-point"></div>
-        <div class="data-point"></div>
-        <div class="progress-bars">
-            <div class="progress-bar-item"><div class="progress-bar-fill"></div></div>
-            <div class="progress-bar-item"><div class="progress-bar-fill"></div></div>
-            <div class="progress-bar-item"><div class="progress-bar-fill"></div></div>
+        
+        <!-- Right Side: Donut Chart -->
+        <div class="donut-chart">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#6366f1" stroke-width="12" 
+                        stroke-dasharray="75 251" transform="rotate(-90 50 50)"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#a78bfa" stroke-width="12" 
+                        stroke-dasharray="50 251" stroke-dashoffset="-75" transform="rotate(-90 50 50)"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#ec4899" stroke-width="12" 
+                        stroke-dasharray="40 251" stroke-dashoffset="-125" transform="rotate(-90 50 50)"/>
+            </svg>
         </div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="scatter-plot">
-            <div class="scatter-point"></div>
-            <div class="scatter-point"></div>
-            <div class="scatter-point"></div>
-            <div class="scatter-point"></div>
-            <div class="scatter-point"></div>
+        
+        <!-- Bottom Right: Progress Bars -->
+        <div class="progress-bars-right">
+            <div class="progress-line" style="--width: 85%; --delay: 0s;"></div>
+            <div class="progress-line" style="--width: 70%; --delay: 0.3s;"></div>
+            <div class="progress-line" style="--width: 90%; --delay: 0.6s;"></div>
+            <div class="progress-line" style="--width: 65%; --delay: 0.9s;"></div>
         </div>
-        <div class="stat-card"></div>
-        <div class="stat-card"></div>
-        <div class="axis-line"></div>
-        <div class="axis-line"></div>
-        <div class="axis-line"></div>
+        
+        <!-- Scatter Plot Right -->
+        <div class="scatter-plot-right">
+            <span class="scatter-dot" style="--top: 20%; --left: 30%;"></span>
+            <span class="scatter-dot" style="--top: 40%; --left: 60%;"></span>
+            <span class="scatter-dot" style="--top: 60%; --left: 20%;"></span>
+            <span class="scatter-dot" style="--top: 30%; --left: 70%;"></span>
+            <span class="scatter-dot" style="--top: 70%; --left: 45%;"></span>
+        </div>
+        
+        <!-- Floating Particles -->
+        <div class="floating-particles">
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+        </div>
+        
+        <!-- Glow Orbs -->
+        <div class="glow-orbs">
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+        </div>
     </div>
-    
+
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#hero">Divyanshu</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#hero" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+        <div class="container">
+            <div class="nav-brand">Divyanshu Gupta</div>
+            <button class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-container">
+    <section id="home" class="hero">
+        <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Divyanshu Gupta</span>
-                </h1>
-                <p class="hero-subtitle">Data Analytics Engineer</p>
-                <p class="hero-description">
-                    Transforming complex data into actionable insights with 7+ years of experience in analytics, cloud platforms, and machine learning.
-                </p>
-                <div class="hero-intro">
-                    <p>🎯 Specialized in building scalable data pipelines and BI solutions</p>
-                    <p>☁️ Expert in AWS, Azure, and Google Cloud platforms</p>
-                    <p>📊 Passionate about turning data into strategic business value</p>
-                </div>
+                <h1 class="hero-title">Hi, I'm <span class="gradient-text">Divyanshu Gupta</span></h1>
+                <h2 class="hero-subtitle">Lead Designer | Data Visualization Specialist</h2>
+                <p class="hero-description">Transforming complex data into compelling visual stories that inspire action. 7+ years bridging design and analytics to create executive-ready dashboards, reports, and presentations.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Get In Touch
                     </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        <i class="fas fa-folder"></i> View Projects
+                    <a href="divyanshu_resume.pdf" download class="btn btn-resume">
+                        <i class="fas fa-download"></i> Download Resume
                     </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="profile-avatar">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="profile-info">
-                        <h3>Divyanshu Gupta</h3>
-                        <p>Available for opportunities</p>
-                    </div>
-                    <div class="profile-links">
-                        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
-                    </div>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-folder-open"></i> View Projects
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a seasoned Data Analytics Engineer with over 7 years of experience in transforming raw data into strategic business insights.</p>
-                    <p>My journey in data analytics began in 2018 when I started freelancing, helping small businesses understand their data. Since then, I've worked with Fortune 500 companies, government organizations, and innovative startups to build robust data solutions.</p>
-                    <p>I specialize in creating end-to-end data pipelines, implementing machine learning models, and developing interactive dashboards that drive decision-making. My expertise spans across cloud platforms (AWS, Azure, GCP), big data technologies, and modern BI tools.</p>
-                    <p>When I'm not analyzing data, you can find me contributing to open-source projects, writing technical blogs, or mentoring aspiring data professionals.</p>
+                    <p>I'm a <strong>Lead Data Visualization Designer</strong> with 7+ years of experience bridging design and analytics to create executive-ready visual experiences. I transform complex data into compelling stories that inspire action.</p>
+                    
+                    <p>My approach goes beyond building dashboards—I craft visual narratives that communicate insights clearly and beautifully. From sketching initial wireframes in Figma to developing interactive dashboards in Tableau and Power BI, I ensure every visualization serves both aesthetic and functional purposes.</p>
+                    
+                    <div class="design-philosophy">
+                        <h3>💡 My Design Philosophy</h3>
+                        <div class="philosophy-grid">
+                            <div class="philosophy-item">
+                                <strong>Clarity Over Complexity</strong>
+                                <p>Strip away chart junk. Every element serves a purpose. If it doesn't add value, it's removed.</p>
+                            </div>
+                            <div class="philosophy-item">
+                                <strong>Accessibility For All</strong>
+                                <p>WCAG AA compliant. Color-blind friendly palettes. Universal design principles in every project.</p>
+                            </div>
+                            <div class="philosophy-item">
+                                <strong>Story-Driven Insights</strong>
+                                <p>Data doesn't speak for itself—designers give it a voice. I create narratives that connect with audiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>I've collaborated with executives, data scientists, and cross-functional teams at ASU, government agencies, and Fortune 500 companies to deliver dashboards, reports, and presentations that influence decision-making at the highest levels.</p>
                 </div>
-                <div class="about-skills">
-                    <h3>Core Competencies</h3>
+                
+                <div class="skills-highlight">
+                    <h3>Design & Visualization Tools</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Spark</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
+                        <span>Adobe Illustrator</span>
+                        <span>Figma</span>
+                        <span>Tableau</span>
+                        <span>Power BI</span>
+                        <span>D3.js</span>
+                        <span>PowerPoint/Keynote</span>
+                        <span>Data Storytelling</span>
+                        <span>Executive Presentations</span>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;">Portfolio Links</h3>
+                    <div class="portfolio-links">
+                        <a href="https://github.com/divyanshuguptaa" target="_blank" class="portfolio-link-btn">
+                            <i class="fab fa-github"></i> GitHub Projects
+                        </a>
+                        <a href="https://public.tableau.com" target="_blank" class="portfolio-link-btn">
+                            <i class="fas fa-chart-bar"></i> Tableau Public
+                        </a>
+                        <a href="https://www.linkedin.com/in/divyanshu-gupta-14965a222/" target="_blank" class="portfolio-link-btn">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
                     </div>
                 </div>
             </div>
@@ -161,83 +197,65 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="section">
         <div class="container">
             <h2 class="section-title">Work Experience</h2>
             <div class="timeline">
+                
                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="duration">Jan 2018 - Present</span>
-                        <div class="timeline-header">
-                            <h3>Data Visualization Engineer</h3>
-                            <span class="company">Freelance (Upwork, Freelancer, Fiverr)</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Designed impactful dashboards transforming complex datasets into actionable business insights</li>
-                            <li>Built scalable APIs and automated data pipelines ensuring reliable and accessible datasets</li>
-                            <li>Created live, interactive dashboards with Power BI, Tableau, and Domo for real-time analytics</li>
-                            <li>Partnered with diverse industry clients to improve decision-making efficiency through automation</li>
+                        <span class="timeline-date">Jan 2018 - Present</span>
+                        <h3>Data Visualization Designer</h3>
+                        <h4>Freelance (Upwork, Freelancer, Fiverr)</h4>
+                        <ul>
+                            <li><strong>Designed executive-ready dashboards</strong> with custom visualizations in Adobe Illustrator, transforming complex datasets into compelling visual stories</li>
+                            <li><strong>Created design systems and style guides</strong> ensuring consistent visualization standards across client organizations</li>
+                            <li><strong>Developed interactive dashboards</strong> with Power BI, Tableau, and Domo, incorporating accessibility best practices (WCAG AA compliance)</li>
+                            <li><strong>Collaborated with C-suite executives</strong> to design data storytelling presentations that influenced strategic decision-making</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="duration">Apr 2024 - Present</span>
-                        <div class="timeline-header">
-                            <h3>Data Analytics Engineer</h3>
-                            <span class="company">ASU Enterprise Technology - AZ-1</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Built Power BI dashboards linked with Azure SQL Database, Data Factory, and Synapse Analytics, making broadband reports 45% faster</li>
-                            <li>Created detailed ArcGIS maps and interactive visuals improving broadband gap detection by 30%</li>
-                            <li>Designed automated data workflows in Azure Data Factory reducing manual work by 40%</li>
-                            <li>Built and deployed an AI chatbot in Cursor IDE trained with FCC broadband datasets for real-time analytics</li>
+                        <span class="timeline-date">Apr 2024 - Present</span>
+                        <h3>Data Analytics Engineer</h3>
+                        <h4>ASU Enterprise Technology - AZ-1</h4>
+                        <ul>
+                            <li><strong>Designed and prototyped Power BI dashboards</strong> using Figma mockups, applying visual hierarchy and color theory to create executive-ready analytics, improving report efficiency by 45%</li>
+                            <li><strong>Created custom ArcGIS visualizations</strong> with innovative cartographic design, enhancing spatial data storytelling and improving broadband gap detection by 30%</li>
+                            <li><strong>Developed visualization style guidelines</strong> adopted across the data team, ensuring consistent design language in all Azure-based dashboards</li>
+                            <li>Built and deployed AI chatbot with intuitive conversational design for real-time FCC broadband analytics</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="duration">Jul 2024 - Apr 2024</span>
-                        <div class="timeline-header">
-                            <h3>Business Intelligence Engineer</h3>
-                            <span class="company">Center for the Future of Arizona</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Analyzed large financial and health datasets using Python, SQL, and Alteryx with AWS Athena, S3, and Redshift</li>
-                            <li>Designed Domo and Power BI dashboards improving decision-making speed and cutting manual reporting by 50%</li>
+                        <span class="timeline-date">Jul 2023 - Apr 2024</span>
+                        <h3>Business Intelligence Engineer</h3>
+                        <h4>Center for the Future of Arizona</h4>
+                        <ul>
+                            <li>Analyzed large financial and health datasets using Python, SQL, and Alteryx with AWS services</li>
+                            <li>Designed Domo and Power BI dashboards improving decision-making speed by 50%</li>
                             <li>Built automated ETL pipelines with AWS Glue and PySpark, reducing processing time by 70%</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="duration">May 2023 - Jun 2024</span>
-                        <div class="timeline-header">
-                            <h3>Data Analyst</h3>
-                            <span class="company">Arizona State University (America Reads)</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Created SQL-based ETL processes in Python using Snowflake's cloud platform for centralized storage</li>
-                            <li>Set up automated data updates with Snowpipe and Snowflake Tasks, cutting manual work by 50%</li>
-                            <li>Developed interactive Tableau dashboards and Excel reports with VBA automation for trend analysis</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="duration">Jan 2022 - Dec 2022</span>
-                        <div class="timeline-header">
-                            <h3>Python Tutor</h3>
-                            <span class="company">Ivy Tech Community College</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Guided students through Python fundamentals including control flow, functions, and data structures</li>
-                            <li>Created coding assignments using real-world datasets to teach data wrangling with Pandas and NumPy</li>
-                            <li>Introduced cloud scripting with Azure Notebooks and virtual environments</li>
+                        <span class="timeline-date">May 2023 - Jun 2024</span>
+                        <h3>Data Analyst</h3>
+                        <h4>Arizona State University (America Reads)</h4>
+                        <ul>
+                            <li>Created SQL-based ETL processes in Python using Snowflake's cloud platform</li>
+                            <li>Set up automated data updates with Snowpipe and Snowflake Tasks</li>
+                            <li>Developed interactive Tableau dashboards and Excel reports with VBA automation</li>
                         </ul>
                     </div>
                 </div>
@@ -247,307 +265,290 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title">Design & Technical Skills</h2>
+            <p style="text-align: center; color: #93c5fd; margin-bottom: 2rem; font-size: 1.1rem;">Bridging design thinking with technical execution</p>
+            
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming & Analytics</h3>
-                    <div class="skill-items">
+                
+                <!-- DESIGN TOOLS FIRST (Job Requirement) -->
+                <div class="skill-card featured-skill">
+                    <div class="skill-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Design & Visualization</h3>
+                    <div class="skill-list">
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%;" data-width="95%"></div>
-                            </div>
+                            <span>Adobe Illustrator</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">SQL</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;" data-width="90%"></div>
-                            </div>
+                            <span>Figma / Sketch</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">R Programming</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%;" data-width="75%"></div>
-                            </div>
+                            <span>Adobe Photoshop</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Excel & VBA</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;" data-width="90%"></div>
-                            </div>
+                            <span>Data Storytelling</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Cloud & Infrastructure</h3>
-                    <div class="skill-items">
+                <!-- BI TOOLS (Job Requirement) -->
+                <div class="skill-card featured-skill">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>BI & Dashboards</h3>
+                    <div class="skill-list">
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">AWS</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;" data-width="90%"></div>
-                            </div>
+                            <span>Tableau</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Azure</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;" data-width="85%"></div>
-                            </div>
+                            <span>Power BI</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Snowflake</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;" data-width="85%"></div>
-                            </div>
+                            <span>Domo / Looker</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Docker & Kubernetes</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%;" data-width="70%"></div>
-                            </div>
+                            <span>Alteryx</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>BI & Visualization</h3>
-                    <div class="skill-items">
+                <!-- PRESENTATION TOOLS (Job Requirement) -->
+                <div class="skill-card featured-skill">
+                    <div class="skill-icon"><i class="fas fa-presentation"></i></div>
+                    <h3>Presentation & Communication</h3>
+                    <div class="skill-list">
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Tableau</span>
-                                <span class="skill-level">Expert</span>
+                            <span>PowerPoint / Keynote</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%;" data-width="95%"></div>
-                            </div>
+                        <div class="skill-item">
+                            <span>Executive Reporting</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Power BI</span>
-                                <span class="skill-level">Expert</span>
+                            <span>Style Guide Development</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                        </div>
+                    </div>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%;" data-width="95%"></div>
-                            </div>
+
+                <!-- INTERACTIVE DEV (Job Requirement) -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Interactive Development</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>D3.js</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Domo</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;" data-width="90%"></div>
-                            </div>
+                            <span>HTML / CSS</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Alteryx</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%;" data-width="80%"></div>
-                            </div>
+                            <span>JavaScript</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
                         </div>
                     </div>
                 </div>
+
+                <!-- PROGRAMMING -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3>Data & Programming</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+                            </div>
+                        <div class="skill-item">
+                            <span>SQL</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>R</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
+                        </div>
+                    </div>
+                            </div>
+
+                <!-- CLOUD -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>AWS</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Azure</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Snowflake</span>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card market-campaign-card" style="cursor: pointer;">
+                
+                <div class="project-card" onclick="openModal()">
                     <div class="project-header">
                         <h3>Market Campaign Analytics Dashboard</h3>
-                        <div class="project-links">
-                            <span style="color: #2563eb; font-size: 0.9rem;">Click to view details & screenshots →</span>
-                        </div>
+                        <span class="project-badge">Click to view →</span>
                     </div>
-                    <p class="project-description">
-                        Comprehensive Power BI dashboard analyzing marketing campaign performance across multiple channels. Features ROI tracking, conversion analytics, customer acquisition cost analysis, and real-time performance metrics to optimize marketing spend.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Power BI</span>
-                        <span class="tech-tag">DAX</span>
-                        <span class="tech-tag">Data Analysis</span>
-                        <span class="tech-tag">Marketing Analytics</span>
-                        <span class="tech-tag">KPI Tracking</span>
+                    <p>Executive-ready Power BI dashboard transforming complex multi-channel marketing data into actionable insights. Features real-time ROI tracking, conversion analytics, and predictive budget optimization.</p>
+                    <div class="project-tags">
+                        <span>Power BI</span>
+                        <span>DAX</span>
+                        <span>Dashboard Design</span>
+                        <span>Data Storytelling</span>
+                        <span>Adobe Illustrator</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>✈️ Flight Delay Analytics Dashboard 2024</h3>
+                        <a id="flight-dashboard-link" href="http://localhost:8001" target="_blank" class="project-badge" style="text-decoration:none;">Click to view →</a>
+                    </div>
+                    <p>Premium interactive dashboard with 12 stunning visualizations analyzing 10,000+ flight records. Features 3D animated plane background, real-time filtering, cyberpunk UI, and exportable insights.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Plotly</span>
+                        <span>Dash</span>
+                        <span>Data Viz</span>
+                        <span>Interactive Design</span>
+                        <span>3D Animation</span>
+                        <span>UX/UI</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Credit Card Default Prediction</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/divyanshuguptaa/default-Payment" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
+                        <a href="https://github.com/divyanshuguptaa/default-Payment" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
                     </div>
-                    <p class="project-description">
-                        Machine learning model for predicting credit card default using advanced algorithms. Built predictive analytics system to assess credit risk and identify potential defaulters with high accuracy.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Jupyter Notebook</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Pandas</span>
+                    <p>Machine learning model for predicting credit card default using advanced algorithms. Built predictive analytics system to assess credit risk and identify potential defaulters with high accuracy.</p>
+                    <div class="project-tags">
+                        <span>Machine Learning</span>
+                        <span>Python</span>
+                        <span>Jupyter Notebook</span>
+                        <span>Scikit-learn</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Q&A Buddy - NLP Chatbot</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/divyanshuguptaa/Q-A-Buddy" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
+                        <a href="https://github.com/divyanshuguptaa/Q-A-Buddy" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
                     </div>
-                    <p class="project-description">
-                        Intelligent conversational chatbot built with Natural Language Processing and Python. Provides accurate responses to user queries using advanced NLP techniques and machine learning algorithms.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">NLTK</span>
-                        <span class="tech-tag">TensorFlow</span>
+                    <p>Intelligent conversational chatbot built with Natural Language Processing and Python. Provides accurate responses to user queries using advanced NLP techniques and machine learning algorithms.</p>
+                    <div class="project-tags">
+                        <span>NLP</span>
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>NLTK</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Noodle Consumption Analytics</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/divyanshuguptaa/Noodle-Consumption-Analytics" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/divyanshuguptaa/Noodle-Consumption-Analytics" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p>Comprehensive data analysis project examining noodle consumption patterns and trends. Performed exploratory data analysis, visualization, and statistical modeling to uncover consumer insights.</p>
+                    <div class="project-tags">
+                        <span>Jupyter Notebook</span>
+                        <span>Pandas</span>
+                        <span>Matplotlib</span>
+                        <span>Data Analysis</span>
+                    </div>
                         </div>
-                    </div>
-                    <p class="project-description">
-                        Comprehensive data analysis project examining noodle consumption patterns and trends. Performed exploratory data analysis, visualization, and statistical modeling to uncover consumer insights.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Jupyter Notebook</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Matplotlib</span>
-                        <span class="tech-tag">Data Analysis</span>
-                    </div>
-                </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Shopping Analytics</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/divyanshuguptaa/Shopping-Analytics" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
+                        <a href="https://github.com/divyanshuguptaa/Shopping-Analytics" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
                     </div>
-                    <p class="project-description">
-                        E-commerce data analytics platform analyzing customer shopping behavior, purchase patterns, and product performance. Delivers actionable insights for inventory management and marketing strategies.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Data Analytics</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Visualization</span>
-                        <span class="tech-tag">Statistics</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Search Vision Application</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/divyanshuguptaa/search-vision" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Innovative search application with visual interface for enhanced user experience. Built with modern JavaScript frameworks to deliver fast, responsive, and intuitive search functionality.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Web Development</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">API Integration</span>
-                        <span class="tech-tag">UI/UX</span>
+                    <p>E-commerce data analytics platform analyzing customer shopping behavior, purchase patterns, and product performance. Delivers actionable insights for inventory management and marketing strategies.</p>
+                    <div class="project-tags">
+                        <span>Data Analytics</span>
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>Visualization</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Song Safari</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/divyanshuguptaa/Song-Safari" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
+                        <a href="https://github.com/divyanshuguptaa/Song-Safari" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
                     </div>
-                    <p class="project-description">
-                        Music discovery and exploration web application. Interactive platform for browsing, searching, and discovering music with a modern, user-friendly interface built with JavaScript.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Web Development</span>
-                        <span class="tech-tag">APIs</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">Frontend</span>
+                    <p>Innovative search application with visual interface for enhanced user experience. Built with modern JavaScript frameworks to deliver fast, responsive, and intuitive search functionality.</p>
+                    <div class="project-tags">
+                        <span>JavaScript</span>
+                        <span>Web Development</span>
+                        <span>HTML/CSS</span>
+                        <span>UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Search Vision Application</h3>
+                        <a href="https://github.com/divyanshuguptaa/search-vision" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p>Search vision application with enhanced visual interface. Built with modern JavaScript to deliver intelligent search capabilities with an intuitive user experience.</p>
+                    <div class="project-tags">
+                        <span>JavaScript</span>
+                        <span>Web App</span>
+                        <span>UI/UX</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Python Completer</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/divyanshuguptaa/Python-completer" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
+                        <a href="https://github.com/divyanshuguptaa/Python-completer" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
                     </div>
-                    <p class="project-description">
-                        Python-based code completion tool designed to enhance developer productivity. Implements intelligent code suggestions and auto-completion features for efficient Python development.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Development Tools</span>
-                        <span class="tech-tag">Automation</span>
-                        <span class="tech-tag">Code Analysis</span>
-                        <span class="tech-tag">IDE Integration</span>
+                    <p>Python development tool for code completion and automation. Enhances developer productivity with intelligent suggestions and automated code generation features.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Development Tools</span>
+                        <span>Automation</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always interested in discussing new opportunities, challenging projects, or potential collaborations. Feel free to reach out!</p>
+                    <p>I'm always interested in discussing new opportunities, challenging projects, or potential collaborations.</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -555,7 +556,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <a href="tel:+12093057867">(209) 305-7867</a>
+                            <span>(209) 305-7867</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -563,115 +564,200 @@
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-linkedin"></i>
-                            <a href="https://linkedin.com/in/divyanshu" target="_blank">LinkedIn Profile</a>
+                            <a href="https://www.linkedin.com/in/divyanshu-gupta-14965a222/" target="_blank">LinkedIn Profile</a>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-submit">
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> Send Message
                     </button>
-                </form>
+                    </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <p class="footer-text">© 2024 Divyanshu Gupta. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="mailto:divyanshu@example.com"><i class="fas fa-envelope"></i></a>
+        <div class="container">
+            <p>© 2024 Divyanshu Gupta. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/divyanshuguptaa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/divyanshu-gupta-14965a222/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:dgupta70@asu.edu"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Market Campaign Modal -->
-    <div id="marketCampaignModal" class="modal">
+    <!-- Modal for Market Campaign -->
+    <div id="projectModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeMarketCampaignModal()">&times;</span>
-            <h2 class="modal-title">Market Campaign Analytics Dashboard</h2>
-            <p class="modal-description">
-                This comprehensive Power BI dashboard provides deep insights into marketing campaign performance across multiple channels. 
-                The dashboard enables data-driven decision making by tracking key metrics including ROI, conversion rates, customer acquisition costs, 
-                campaign effectiveness, and channel performance. Built to help marketing teams optimize their budget allocation and improve campaign strategies.
-            </p>
-            <div class="project-features">
-                <h3 style="margin-top: 1.5rem; margin-bottom: 1rem; color: #1f2937;">Key Features:</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span>
-                        Multi-channel campaign performance tracking
-                    </li>
-                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span>
-                        Real-time ROI and conversion analytics
-                    </li>
-                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span>
-                        Customer acquisition cost analysis
-                    </li>
-                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span>
-                        Interactive visualizations and drill-down capabilities
-                    </li>
-                    <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #10b981; font-weight: bold;">✓</span>
-                        Campaign comparison and benchmarking tools
-                    </li>
-                </ul>
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2>Market Campaign Analytics Dashboard</h2>
+            
+            <div class="modal-description">
+                <p class="modal-intro"><strong>Executive-Ready Data Storytelling:</strong> Transformed complex multi-channel marketing data into an intuitive, visually compelling dashboard that drives strategic decision-making.</p>
+                
+                <div class="modal-section">
+                    <h3>🎯 The Challenge</h3>
+                    <p>Marketing team struggled to understand ROI across 12+ channels with disconnected data sources and overwhelming spreadsheets. Leadership needed quick, actionable insights to optimize budget allocation and campaign performance.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>🎨 Design Approach</h3>
+                    <p>Created a three-tier visual hierarchy designed for different audiences:</p>
+                    <ul>
+                        <li><strong>Executive Summary:</strong> High-level KPIs with color-coded performance indicators</li>
+                        <li><strong>Campaign Deep-Dives:</strong> Channel-specific analytics with comparative views</li>
+                        <li><strong>Granular Analytics:</strong> Detailed metrics with drill-down capabilities</li>
+                    </ul>
+                    <p>Used intuitive navigation, consistent color palette, and mobile-responsive design principles.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>📊 Key Features</h3>
+                    <ul class="feature-list">
+                        <li><strong>Real-time ROI tracking</strong> across all channels (Social, Email, PPC, Display)</li>
+                        <li><strong>Conversion funnel visualization</strong> showing drop-off points at each stage</li>
+                        <li><strong>Budget allocation optimizer</strong> with predictive spend recommendations</li>
+                        <li><strong>Customer acquisition cost (CAC)</strong> trending and benchmarking</li>
+                        <li><strong>Mobile-responsive design</strong> for on-the-go executive access</li>
+                        <li><strong>Automated weekly reports</strong> with AI-generated insights and recommendations</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>💡 Impact & Results</h3>
+                    <ul>
+                        <li>Reduced campaign analysis time by <strong>70%</strong></li>
+                        <li>Enabled data-driven budget reallocation improving marketing ROI by <strong>35%</strong></li>
+                        <li>Became the <strong>template for all marketing dashboards</strong> company-wide</li>
+                        <li>Used daily by 25+ marketing team members and C-suite executives</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>🛠️ Design & Technical Tools</h3>
+                    <p><strong>Design:</strong> Adobe Illustrator for custom visualizations, Figma for prototyping<br>
+                    <strong>Development:</strong> Power BI with custom DAX measures, Python for ETL automation<br>
+                    <strong>Data:</strong> Azure SQL Database, Power Query for data transformation</p>
+                </div>
             </div>
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #1f2937;">Dashboard Screenshots</h3>
-            <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem;">Click on any image to view in full size</p>
-            <div class="modal-gallery-grid">
-                <div class="modal-gallery-item">
-                    <img src="Market%20Campaign/Screenshot%202025-10-03%20143832.png" alt="Market Campaign Dashboard - Overview" onclick="openImageLightbox(this.src, this.alt)">
+            
+            <h3 style="margin-top: 2rem; color: #93c5fd; text-align: center;">📸 Dashboard Screenshots</h3>
+            <p style="text-align: center; color: #e0e7ff; margin-bottom: 1.5rem;">Click any image to view full size</p>
+            
+            <div class="modal-gallery">
+                <img src="Market%20Campaign/Screenshot%202025-10-03%20143832.png" alt="Dashboard 1" onclick="openImage(this.src)">
+                <img src="Market%20Campaign/Screenshot%202025-10-03%20143842.png" alt="Dashboard 2" onclick="openImage(this.src)">
+                <img src="Market%20Campaign/Screenshot%202025-10-03%20143852.png" alt="Dashboard 3" onclick="openImage(this.src)">
+                <img src="Market%20Campaign/Screenshot%202025-10-03%20143903.png" alt="Dashboard 4" onclick="openImage(this.src)">
+                <img src="Market%20Campaign/Screenshot%202025-10-03%20143912.png" alt="Dashboard 5" onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div id="imageLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImage" src="" alt="Full size image">
+    </div>
+
+    <!-- Modal for Flight Delay Dashboard -->
+    <div id="flightModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeFlightModal()">&times;</span>
+            <h2>✈️ Flight Delay Analytics Dashboard 2024</h2>
+            
+            <div class="modal-description">
+                <p class="modal-intro"><strong>Interactive Data Exploration Platform:</strong> A premium analytics dashboard featuring 12 interconnected visualizations, 3D animations, and real-time filtering to analyze 10,000+ US flight records from 2024.</p>
+                
+                <div class="modal-section">
+                    <h3>🎯 The Challenge</h3>
+                    <p>Flight delays cost billions annually and affect millions of passengers. The challenge was to create an intuitive, visually engaging platform that helps travelers, airlines, and analysts understand delay patterns, identify root causes, and make data-driven decisions about travel planning and operational improvements.</p>
                 </div>
-                <div class="modal-gallery-item">
-                    <img src="Market%20Campaign/Screenshot%202025-10-03%20143842.png" alt="Market Campaign Dashboard - Performance Metrics" onclick="openImageLightbox(this.src, this.alt)">
+                
+                <div class="modal-section">
+                    <h3>🎨 Design Approach</h3>
+                    <p>Created an immersive cyberpunk-themed interface with multiple design innovations:</p>
+                    <ul>
+                        <li><strong>3D Animated Background:</strong> 5 planes flying in different trajectories with neon glow effects</li>
+                        <li><strong>Glassmorphism UI:</strong> Semi-transparent cards with backdrop blur and glowing borders</li>
+                        <li><strong>Visual Hierarchy:</strong> KPI cards → Global filters → 12 specialized visualizations</li>
+                        <li><strong>Color Psychology:</strong> Neon cyan/green theme for futuristic feel, red-green gradients for performance</li>
+                        <li><strong>Interactive Storytelling:</strong> 12 different perspectives on the same dataset</li>
+                    </ul>
                 </div>
-                <div class="modal-gallery-item">
-                    <img src="Market%20Campaign/Screenshot%202025-10-03%20143852.png" alt="Market Campaign Dashboard - ROI Analysis" onclick="openImageLightbox(this.src, this.alt)">
+                
+                <div class="modal-section">
+                    <h3>📊 The 12 Visualizations</h3>
+                    <ul class="feature-list">
+                        <li><strong>Monthly Delay Trends:</strong> Identify seasonal patterns with line charts</li>
+                        <li><strong>Carrier Performance:</strong> Rank airlines by reliability with color-coded bars</li>
+                        <li><strong>Delay Category Distribution:</strong> Donut chart showing severity breakdown</li>
+                        <li><strong>Root Cause Analysis:</strong> Identify if delays are due to weather, carrier, or air traffic</li>
+                        <li><strong>Day/Hour Heatmap:</strong> Find best/worst times to fly with 2D heat visualization</li>
+                        <li><strong>Distance vs Delay Scatter:</strong> Explore correlation between flight distance and delays</li>
+                        <li><strong>Top Worst Routes:</strong> Identify problematic city pairs to avoid</li>
+                        <li><strong>Cancellation Analysis:</strong> Compare cancellation rates across carriers</li>
+                        <li><strong>On-Time Performance Timeline:</strong> Track performance trends over the year</li>
+                        <li><strong>Statistical Box Plots:</strong> Analyze delay distribution and outliers by carrier</li>
+                        <li><strong>Geographic Analysis:</strong> Identify which states have the worst delays</li>
+                        <li><strong>Taxi Time Analysis:</strong> Evaluate ground operation efficiency by airport</li>
+                    </ul>
                 </div>
-                <div class="modal-gallery-item">
-                    <img src="Market%20Campaign/Screenshot%202025-10-03%20143903.png" alt="Market Campaign Dashboard - Channel Breakdown" onclick="openImageLightbox(this.src, this.alt)">
+                
+                <div class="modal-section">
+                    <h3>🎛️ Interactive Features</h3>
+                    <ul>
+                        <li><strong>Global Filters:</strong> Carrier, Month, Day of Week, Delay Range - all update 12 charts in real-time</li>
+                        <li><strong>Plotly Interactivity:</strong> Hover tooltips, zoom, pan, export PNG on every chart</li>
+                        <li><strong>Per-Chart Controls:</strong> Customize visualizations with dropdowns and sliders</li>
+                        <li><strong>Live KPI Cards:</strong> Total Flights, Avg Delay, On-Time Rate, Cancellation Rate update dynamically</li>
+                    </ul>
                 </div>
-                <div class="modal-gallery-item">
-                    <img src="Market%20Campaign/Screenshot%202025-10-03%20143912.png" alt="Market Campaign Dashboard - Campaign Insights" onclick="openImageLightbox(this.src, this.alt)">
+                
+                <div class="modal-section">
+                    <h3>💡 Technical Highlights</h3>
+                    <ul>
+                        <li><strong>998 lines of production Python code</strong> with clean architecture</li>
+                        <li><strong>Real-time callback system</strong> updating all visualizations simultaneously</li>
+                        <li><strong>GPU-accelerated CSS animations</strong> for smooth 3D plane movements</li>
+                        <li><strong>Efficient data processing</strong> with Pandas vectorized operations</li>
+                        <li><strong>Responsive design</strong> adapting to different screen sizes</li>
+                        <li><strong>Comprehensive documentation</strong> with 6 user guides and deployment instructions</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>🛠️ Technology Stack</h3>
+                    <p><strong>Backend:</strong> Python 3.11, Pandas, NumPy<br>
+                    <strong>Visualization:</strong> Plotly 5.18.0 with WebGL rendering<br>
+                    <strong>Framework:</strong> Dash 2.14.2 with Bootstrap components<br>
+                    <strong>Design:</strong> Custom CSS with 3D animations, glassmorphism, neon effects<br>
+                    <strong>Deployment:</strong> Ready for Render/Heroku with Gunicorn</p>
+                </div>
+                
+                <div class="modal-section" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 136, 0.1)); border-radius: 10px; margin-top: 2rem;">
+                    <h3 style="color: #00ff88; margin-bottom: 1rem;">🚀 Launch Live Dashboard</h3>
+                    <p style="color: #e0e7ff; margin-bottom: 1.5rem;">Experience the full interactive dashboard with all features</p>
+                    <a id="flight-dashboard-open-btn" href="http://localhost:8001" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #00d4ff, #00ff88); color: #0a0e27; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 1.1rem; box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);">
+                        <i class="fas fa-rocket"></i> Open Dashboard
+                    </a>
+                    <p style="color: #93c5fd; margin-top: 1rem; font-size: 0.9rem;"><em>Note: Dashboard must be running locally on port 8001</em></p>
+                    <a href="https://github.com/divyanshuguptaa/divyanshu_portfolio/tree/main/flight%20delay" target="_blank" style="color: #00d4ff; text-decoration: none; margin-top: 1rem; display: inline-block;">
+                        <i class="fab fa-github"></i> View Source Code on GitHub
+                            </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Gallery Modal (Hidden by default) -->
-    <div id="galleryModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
-            <h2 class="modal-title">Project Gallery</h2>
-            <p class="modal-description">Click on any image to view in full size</p>
-            <div class="modal-gallery-grid">
-                <!-- Gallery items will be added here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
-</html>
+</html> 
 
