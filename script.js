@@ -1,19 +1,101 @@
-// Mobile Navigation Toggle
+// ========================================
+// GALLERY MODAL FUNCTIONS
+// ========================================
+function openGalleryModal() {
+    const modal = document.getElementById('galleryModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeGalleryModal() {
+    const modal = document.getElementById('galleryModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// ========================================
+// MARKET CAMPAIGN MODAL FUNCTIONS
+// ========================================
+function openMarketCampaignModal() {
+    console.log('Opening Market Campaign Modal...');
+    const modal = document.getElementById('marketCampaignModal');
+    console.log('Modal element:', modal);
+    if (modal) {
+        modal.style.display = 'block';
+        modal.style.zIndex = '10000';
+        document.body.style.overflow = 'hidden';
+        console.log('Modal opened successfully!');
+    } else {
+        console.error('Modal not found!');
+    }
+}
+
+function closeMarketCampaignModal() {
+    console.log('Closing Market Campaign Modal...');
+    const modal = document.getElementById('marketCampaignModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Image Lightbox Functionality
+function openImageLightbox(src, alt) {
+    // Prevent event from closing the modal
+    event.stopPropagation();
+    
+    const lightbox = document.createElement('div');
+    lightbox.className = 'image-lightbox';
+    lightbox.innerHTML = `
+        <span class="lightbox-close">&times;</span>
+        <img src="${src}" alt="${alt}">
+    `;
+    
+    document.body.appendChild(lightbox);
+    
+    // Close on clicking anywhere or close button
+    lightbox.addEventListener('click', () => {
+        lightbox.remove();
+        document.body.style.overflow = 'hidden'; // Keep modal scroll disabled
+    });
+    
+    // Close on Escape key
+    const escHandler = (e) => {
+        if (e.key === 'Escape') {
+            lightbox.remove();
+            document.removeEventListener('keydown', escHandler);
+        }
+    };
+    document.addEventListener('keydown', escHandler);
+}
+
+// ========================================
+// MOBILE NAVIGATION
+// ========================================
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
-// Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
+    if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
 }));
 
-// Smooth scrolling for navigation links
+// ========================================
+// SMOOTH SCROLLING
+// ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -27,19 +109,52 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// ========================================
+// NAVBAR EFFECTS
+// ========================================
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+    if (navbar) {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.classList.remove('scrolled');
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
     }
 });
 
-// Intersection Observer for animations
+// ========================================
+// FIX FOR VISIBILITY - ENSURE CONTENT SHOWS
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Make sure all content is visible first
+    const ensureVisible = [
+        '.timeline-item',
+        '.timeline-content',
+        '.skill-category',
+        '.skill-items',
+        '.project-card',
+        '.about-content',
+        '.about-text',
+        '.about-skills'
+    ];
+    
+    ensureVisible.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            // Remove any opacity: 0 that might be set
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+        });
+    });
+});
+
+// ========================================
+// INTERSECTION OBSERVER FOR ANIMATIONS (SIMPLIFIED)
+// ========================================
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -48,87 +163,132 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Add animation class but ensure visibility
+            entry.target.style.opacity = '1';
             entry.target.classList.add('fade-in-up');
+            entry.target.classList.add('animated');
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.timeline-item, .project-card, .skill-category, .about-content');
-    animateElements.forEach(el => observer.observe(el));
-});
-
-// Skill bars animation
-const skillBars = document.querySelectorAll('.skill-progress');
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const progressBar = entry.target;
-            const width = progressBar.style.width;
-            progressBar.style.width = '0%';
-            setTimeout(() => {
-                progressBar.style.width = width;
-            }, 200);
+// ========================================
+// SKILL BARS ANIMATION (FIXED)
+// ========================================
+const animateSkillBars = () => {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    skillBars.forEach(bar => {
+        const barTop = bar.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (barTop < windowHeight - 50) {
+            // Get width from style attribute or default
+            const targetWidth = bar.style.width || '85%';
+            
+            // Only animate if not already animated
+            if (!bar.classList.contains('animated')) {
+                // Set width directly without hiding first
+                bar.style.width = targetWidth;
+                bar.classList.add('animated');
+            }
         }
     });
-}, { threshold: 0.5 });
+};
 
-skillBars.forEach(bar => skillObserver.observe(bar));
+// ========================================
+// TYPING EFFECT FOR HERO SECTION (OPTIONAL)
+// ========================================
+class TypeWriter {
+    constructor(element, words, wait = 3000) {
+        this.element = element;
+        this.words = words;
+        this.wait = parseInt(wait, 10);
+        this.txt = '';
+        this.wordIndex = 0;
+        this.isDeleting = false;
+        this.type();
+    }
 
-// Contact form handling
+    type() {
+        const current = this.wordIndex % this.words.length;
+        const fullTxt = this.words[current];
+
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.element.innerHTML = `<span class="typing-text">${this.txt}</span>`;
+
+        let typeSpeed = 100;
+
+        if (this.isDeleting) {
+            typeSpeed /= 2;
+        }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+            typeSpeed = this.wait;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.wordIndex++;
+            typeSpeed = 500;
+        }
+
+        setTimeout(() => this.type(), typeSpeed);
+    }
+}
+
+// ========================================
+// CONTACT FORM HANDLING
+// ========================================
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form data
         const formData = new FormData(this);
         const name = formData.get('name');
         const email = formData.get('email');
         const subject = formData.get('subject');
         const message = formData.get('message');
         
-        // Simple validation
         if (!name || !email || !subject || !message) {
             showNotification('Please fill in all fields', 'error');
             return;
         }
         
-        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             showNotification('Please enter a valid email address', 'error');
             return;
         }
         
-        // Simulate form submission (replace with actual form handling)
         showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-        
-        // Reset form
         this.reset();
     });
 }
 
-// Notification system
+// ========================================
+// NOTIFICATION SYSTEM
+// ========================================
 function showNotification(message, type = 'info') {
-    // Remove existing notifications
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
         existingNotification.remove();
     }
     
-    // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.innerHTML = `
         <div class="notification-content">
+            <span class="notification-icon">${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}</span>
             <span class="notification-message">${message}</span>
             <button class="notification-close">&times;</button>
         </div>
     `;
     
-    // Add styles
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -143,53 +303,13 @@ function showNotification(message, type = 'info') {
         animation: slideInRight 0.3s ease-out;
     `;
     
-    // Add animation styles
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        .notification-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .notification-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0;
-            line-height: 1;
-        }
-        
-        .notification-close:hover {
-            opacity: 0.8;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Add to page
     document.body.appendChild(notification);
     
-    // Close button functionality
     const closeBtn = notification.querySelector('.notification-close');
     closeBtn.addEventListener('click', () => {
         notification.remove();
     });
     
-    // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentNode) {
             notification.remove();
@@ -197,54 +317,11 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// FIXED: Typing animation for hero title - This was causing the HTML rendering issue
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            // Check if we're at the start of an HTML tag
-            if (text.charAt(i) === '<') {
-                // Find the end of the tag
-                let tagEnd = text.indexOf('>', i);
-                if (tagEnd !== -1) {
-                    // Add the entire tag at once
-                    element.innerHTML += text.substring(i, tagEnd + 1);
-                    i = tagEnd + 1;
-                } else {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                }
-            } else {
-                element.innerHTML += text.charAt(i);
-                i++;
-            }
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// BETTER SOLUTION: Remove the typing animation entirely to avoid HTML parsing issues
-document.addEventListener('DOMContentLoaded', () => {
-    // Don't use typing animation - just let the HTML render normally
-    // The typing animation was causing the HTML to be treated as plain text
-    
-    // If you want typing effect, use this approach instead:
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        // Just add a fade-in effect instead of typing
-        heroTitle.style.opacity = '0';
-        setTimeout(() => {
-            heroTitle.style.transition = 'opacity 1s ease-in';
-            heroTitle.style.opacity = '1';
-        }, 500);
-    }
-});
-
-// Parallax effect for hero section
+// ========================================
+// PARALLAX EFFECT (OPTIONAL - DISABLE IF CAUSING ISSUES)
+// ========================================
+// Commented out to prevent layout issues
+/*
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
@@ -253,8 +330,11 @@ window.addEventListener('scroll', () => {
         hero.style.transform = `translateY(${rate}px)`;
     }
 });
+*/
 
-// Active navigation link highlighting
+// ========================================
+// ACTIVE NAVIGATION HIGHLIGHTING
+// ========================================
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -262,7 +342,7 @@ window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+        const sectionHeight = section.offsetHeight;
         if (window.pageYOffset >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
@@ -276,55 +356,85 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Counter animation for stats
+// ========================================
+// COUNTER ANIMATION FOR STATS
+// ========================================
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
+    const isDecimal = target % 1 !== 0;
     
     function updateCounter() {
         start += increment;
         if (start < target) {
-            element.textContent = Math.floor(start);
+            element.textContent = isDecimal ? start.toFixed(1) : Math.floor(start);
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target;
+            element.textContent = isDecimal ? target.toFixed(1) : target;
         }
     }
     
     updateCounter();
 }
 
-// Initialize counter animations
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counter = entry.target;
-            const target = parseInt(counter.textContent);
-            animateCounter(counter, target);
-            counterObserver.unobserve(counter);
+// ========================================
+// INITIALIZE ON DOM CONTENT LOADED
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    // CRITICAL: Ensure all content is visible
+    const allContent = document.querySelectorAll('*');
+    allContent.forEach(el => {
+        if (el.style.opacity === '0') {
+            el.style.opacity = '1';
         }
     });
-}, { threshold: 0.5 });
-
-document.addEventListener('DOMContentLoaded', () => {
+    
+    // Initialize animations only on elements that exist
+    const animateElements = document.querySelectorAll('.timeline-item, .project-card, .skill-category');
+    animateElements.forEach(el => {
+        // Make sure element is visible before observing
+        el.style.opacity = '1';
+        observer.observe(el);
+    });
+    
+    // Initialize gallery images
+    const galleryImages = document.querySelectorAll('.modal-gallery-item img');
+    galleryImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openImageLightbox(img.src, img.alt);
+        });
+    });
+    
+    // Initialize counters
     const counters = document.querySelectorAll('.stat-number');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                const counter = entry.target;
+                const target = parseFloat(counter.getAttribute('data-target') || counter.textContent);
+                animateCounter(counter, target);
+                counter.classList.add('counted');
+            }
+        });
+    }, { threshold: 0.5 });
+    
     counters.forEach(counter => counterObserver.observe(counter));
-});
-
-// Preloader (optional)
-window.addEventListener('load', () => {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 300);
+    
+    // Initialize typing effect only if element exists
+    const typingElement = document.querySelector('.typing-effect');
+    if (typingElement) {
+        const words = [
+            'Data Analytics Engineer',
+            'Business Intelligence Expert',
+            'Cloud Solutions Architect',
+            'Machine Learning Enthusiast'
+        ];
+        new TypeWriter(typingElement, words);
     }
-});
-
-// Add some interactive hover effects
-document.addEventListener('DOMContentLoaded', () => {
-    // Add hover effect to project cards
+    
+    // Initialize project card hover effects
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -336,35 +446,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Add click effect to buttons
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Create ripple effect
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                left: ${x}px;
-                top: ${y}px;
-                background: rgba(255, 255, 255, 0.3);
-                border-radius: 50%;
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            `;
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
+    // Add click handler for Market Campaign card
+    const marketCampaignCard = document.querySelector('.market-campaign-card');
+    console.log('Market Campaign Card found:', marketCampaignCard);
+    if (marketCampaignCard) {
+        marketCampaignCard.addEventListener('click', function(e) {
+            console.log('Market Campaign Card clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            openMarketCampaignModal();
         });
-    });
+        console.log('Click handler added to Market Campaign card');
+    } else {
+        console.error('Market Campaign card not found!');
+    }
+    
+    // Animate skill bars after a short delay
+    setTimeout(() => {
+        animateSkillBars();
+    }, 500);
 });
+
+// ========================================
+// ADDITIONAL SCROLL LISTENERS
+// ========================================
+window.addEventListener('scroll', () => {
+    animateSkillBars();
+});
+
+window.addEventListener('load', () => {
+    // Final check to ensure everything is visible
+    document.querySelectorAll('.timeline-item, .timeline-content, .skill-category, .project-card').forEach(el => {
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+    });
+    
+    // Animate skill bars on load
+    animateSkillBars();
+});
+
+// ========================================
+// MODAL CONTROLS
+// ========================================
+window.onclick = function(event) {
+    const galleryModal = document.getElementById('galleryModal');
+    const marketModal = document.getElementById('marketCampaignModal');
+    
+    if (event.target == galleryModal) {
+        closeGalleryModal();
+    }
+    if (event.target == marketModal) {
+        closeMarketCampaignModal();
+    }
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeGalleryModal();
+        closeMarketCampaignModal();
+    }
+});
+
+// ========================================
+// EXPORT FUNCTIONS
+// ========================================
+window.openGalleryModal = openGalleryModal;
+window.closeGalleryModal = closeGalleryModal;
+window.openMarketCampaignModal = openMarketCampaignModal;
+window.closeMarketCampaignModal = closeMarketCampaignModal;
+window.openImageLightbox = openImageLightbox;
+window.showNotification = showNotification;
+
+// ========================================
+// FAILSAFE: Force all content visible after 1 second
+// ========================================
+setTimeout(() => {
+    document.querySelectorAll('*').forEach(el => {
+        if (window.getComputedStyle(el).opacity === '0') {
+            el.style.opacity = '1';
+        }
+        if (window.getComputedStyle(el).visibility === 'hidden') {
+            el.style.visibility = 'visible';
+        }
+    });
+}, 1000);
