@@ -1,117 +1,151 @@
-# 🚀 Quick Deployment Guide - Vercel
+# 🚀 Complete Deployment Guide
 
-## Option 1: Drag & Drop (Easiest - No Node.js Required)
+Your code is now on GitHub! Here's how to deploy both your portfolio and dashboard.
 
-### Step 1: Prepare Your Files
-Your portfolio files are ready! You have:
-- ✅ `index.html` - Main website
-- ✅ `styles.css` - Styling
-- ✅ `script.js` - Functionality
-- ✅ `README.md` - Documentation
-
-### Step 2: Deploy to Vercel
-1. **Go to [Vercel.com](https://vercel.com)**
-2. **Sign up/Login** with your GitHub account
-3. **Click "New Project"**
-4. **Choose "Upload Template"**
-5. **Drag and drop your entire Portfolio folder**
-6. **Click "Deploy"**
-
-### Step 3: Get Your Link
-- Vercel will automatically deploy your site
-- You'll get a URL like: `https://portfolio-abc123.vercel.app`
-- This link can be shared anywhere!
-
-## Option 2: GitHub Integration (Recommended)
-
-### Step 1: Create GitHub Repository
-1. Go to [GitHub.com](https://github.com)
-2. Click "New Repository"
-3. Name it: `portfolio`
-4. Make it Public
-5. Don't initialize with README (we already have one)
-
-### Step 2: Upload Files
-1. **Open Command Prompt/Terminal in your Portfolio folder**
-2. **Run these commands:**
-```bash
-git init
-git add .
-git commit -m "Initial portfolio commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
-git push -u origin main
-```
-
-### Step 3: Deploy on Vercel
-1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-2. Click "New Project"
-3. Import your GitHub repository
-4. Click "Deploy"
-
-## 🎉 Your Portfolio Features
-
-### ✅ What's Included:
-- **Professional Design**: Modern, clean layout
-- **Responsive**: Works on all devices
-- **Your Information**: All your experience, skills, and projects
-- **Contact Form**: Visitors can reach you
-- **Social Links**: LinkedIn and GitHub integration
-- **Smooth Animations**: Professional interactions
-
-### 📱 Sections:
-1. **Hero Section**: Your name, title, and quick stats
-2. **About**: Professional summary
-3. **Experience**: Timeline of your work history
-4. **Skills**: Technical skills with progress bars
-5. **Projects**: Your GitHub projects with links
-6. **Contact**: Contact form and information
-
-### 🔗 Your Links Included:
-- **LinkedIn**: https://www.linkedin.com/in/divyanshu-gupta-14965a222/
-- **GitHub**: https://github.com/divyanshuguptaa
-- **Email**: dgupta70@asu.edu
-- **Phone**: (209) 305-7867
-
-## 🎨 Customization
-
-### Quick Changes:
-- **Colors**: Edit `styles.css` - change the blue (#2563eb) and yellow (#fbbf24)
-- **Content**: Edit `index.html` - update any text or information
-- **Projects**: Add/remove projects in the projects section
-
-### Professional Experience Included:
-- Data Analytics Engineer at ASU Enterprise Technology
-- Business Intelligence Engineer at Center for the Future of Arizona
-- Data Analyst at Arizona State University
-- Python Tutor at Ivy Tech Community College
-
-### Skills Highlighted:
-- **Programming**: Python, SQL, R, Linux
-- **Cloud**: AWS, Azure, Snowflake, GCP
-- **Visualization**: Power BI, Tableau, Domo, Alteryx
-- **Machine Learning**: scikit-learn, PyTorch, TensorFlow
-
-## 🚀 After Deployment
-
-1. **Test your site** on different devices
-2. **Share your link** on LinkedIn, resume, and business cards
-3. **Update content** as needed through Vercel dashboard
-4. **Add custom domain** (optional) for professional branding
-
-## 💡 Pro Tips
-
-- **Custom Domain**: You can add your own domain (e.g., divyanshugupta.com)
-- **Analytics**: Vercel provides basic analytics
-- **Updates**: Push changes to GitHub for automatic updates
-- **SEO**: Your site is already optimized for search engines
-
-## 🆘 Need Help?
-
-- **Vercel Support**: [vercel.com/support](https://vercel.com/support)
-- **GitHub Issues**: Create an issue in your repository
-- **Documentation**: Check the README.md file
+## 📊 GitHub Repository
+**URL:** https://github.com/divyanshuguptaa/divyanshu_portfolio
 
 ---
 
-**Your portfolio is ready to impress! 🎉** 
+## 🌐 STEP 1: Deploy Portfolio Website (Vercel)
+
+### Option A: Vercel (Recommended for Portfolio)
+
+1. **Go to [vercel.com](https://vercel.com)**
+2. **Sign up/Login** with your GitHub account
+3. **Click "Add New Project"**
+4. **Select your repository:** `divyanshuguptaa/divyanshu_portfolio`
+5. **Configure:**
+   - Framework Preset: **Other**
+   - Root Directory: `./` (leave as default)
+   - Build Command: Leave empty
+   - Output Directory: Leave empty
+6. **Click "Deploy"**
+7. **Done!** Your portfolio will be live at: `https://divyanshu-portfolio-xxx.vercel.app`
+
+### Option B: Netlify (Alternative)
+
+1. Go to [netlify.com](https://netlify.com)
+2. Click "Add new site" → "Import an existing project"
+3. Connect GitHub and select your repository
+4. Click Deploy!
+
+---
+
+## ✈️ STEP 2: Deploy Flight Dashboard (Render.com)
+
+**Important:** The dashboard needs the large CSV file (1.3GB) which is NOT on GitHub.
+
+### Option 1: Use Sample Data (Quick Test)
+The dashboard will work with the sample data that's already in the repo!
+
+1. **Go to [render.com](https://render.com)**
+2. **Sign up/Login** with GitHub
+3. **Click "New +" → "Web Service"**
+4. **Connect your repository:** `divyanshuguptaa/divyanshu_portfolio`
+5. **Configure:**
+   - Name: `flight-delay-dashboard`
+   - Region: Choose closest to you
+   - Branch: `main`
+   - Root Directory: Leave empty
+   - Runtime: `Python 3`
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `gunicorn flight_delay_dashboard:server`
+6. **Instance Type:** Free
+7. **Click "Create Web Service"**
+8. **Wait 5-10 minutes** for deployment
+
+Your dashboard will be live at: `https://flight-delay-dashboard.onrender.com`
+
+### Option 2: Use Full Dataset (1.3 GB)
+
+#### A. Upload CSV to Google Drive
+1. Upload `flight delay/flight_data_2024.csv` to Google Drive
+2. Right-click → Share → "Anyone with the link"
+3. Copy the sharing link (looks like): 
+   ```
+   https://drive.google.com/file/d/1ABC123.../view?usp=sharing
+   ```
+4. Convert to direct download link:
+   ```
+   https://drive.google.com/uc?export=download&id=1ABC123...
+   ```
+   (Replace `1ABC123...` with the ID from your link)
+
+#### B. Set Environment Variable on Render
+1. In your Render dashboard, go to your web service
+2. Click **"Environment"** tab
+3. Add variable:
+   - Key: `CSV_URL`
+   - Value: Your Google Drive direct download link
+4. Click **"Save Changes"**
+5. Render will automatically redeploy with full data!
+
+#### Alternative: Use Dropbox
+1. Upload CSV to Dropbox
+2. Get sharing link
+3. Change `?dl=0` to `?dl=1` at the end
+4. Use this as your `CSV_URL`
+
+---
+
+## 🔗 STEP 3: Link Dashboard to Portfolio
+
+Once both are deployed, update your portfolio `index.html` to link to your dashboard:
+
+```html
+<a href="https://your-dashboard.onrender.com" target="_blank">
+  View Live Flight Dashboard
+</a>
+```
+
+---
+
+## 📱 Your Live URLs
+
+After deployment, you'll have:
+
+1. **Portfolio:** `https://your-name.vercel.app`
+2. **Dashboard:** `https://flight-delay-dashboard.onrender.com`
+
+---
+
+## 🐛 Troubleshooting
+
+### Render Dashboard Not Loading?
+- Check logs in Render dashboard
+- Ensure `Procfile` exists
+- Verify `requirements.txt` has all dependencies
+
+### Dashboard Shows Error?
+- If using full CSV: Verify `CSV_URL` is set correctly
+- Test the CSV URL in browser (should download file)
+- Check Render logs for specific errors
+
+### Free Tier Limitations
+- **Render Free:** App sleeps after 15 min of inactivity (takes 30-60s to wake up)
+- **Vercel Free:** Unlimited, but bandwidth limited
+- **Upgrade:** If needed, both have affordable paid plans
+
+---
+
+## 🎯 Quick Summary
+
+1. ✅ Code pushed to GitHub: `divyanshuguptaa/divyanshu_portfolio`
+2. 🌐 Deploy portfolio on Vercel (5 minutes)
+3. ✈️ Deploy dashboard on Render (10 minutes)
+4. 🔗 Link them together
+5. 🎉 Share your live portfolio!
+
+---
+
+## 💡 Pro Tips
+
+- **Custom Domain:** Both Vercel and Render support custom domains for free
+- **Analytics:** Add Google Analytics to track visitors
+- **Resume:** Upload your resume to the repo and link it from portfolio
+- **GitHub Pages:** Alternative free hosting for portfolio
+
+---
+
+Need help? Let me know! 🚀
