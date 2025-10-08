@@ -25,13 +25,19 @@ import os
 CSV_URL = os.getenv("CSV_URL")  # Set this in Render environment variables
 
 if CSV_URL:
-    # Production: load from URL
-    df = pd.read_csv(CSV_URL)
-    print(f"Loaded data from URL: {CSV_URL}")
+    # Production: load from URL (Google Drive)
+    try:
+        df = pd.read_csv(CSV_URL)
+        print(f"✓ Loaded data from URL: {CSV_URL}")
+    except Exception as e:
+        print(f"Error loading from URL: {e}")
+        print("Falling back to sample data...")
+        df = pd.read_csv('flight_data_2024_sample.csv')
+        print("✓ Loaded sample data")
 else:
-    # Development: load from local file
-    df = pd.read_csv('flight_data_2024.csv')
-    print("Loaded data from local file: flight_data_2024.csv")
+    # Development/Fallback: load from local sample file
+    df = pd.read_csv('flight_data_2024_sample.csv')
+    print("✓ Loaded data from local file: flight_data_2024_sample.csv")
 
 # Data preprocessing
 df['fl_date'] = pd.to_datetime(df['fl_date'])
