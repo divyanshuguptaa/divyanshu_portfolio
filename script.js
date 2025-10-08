@@ -2,8 +2,8 @@
    PORTFOLIO JAVASCRIPT
    =================================== */
 
-// Global config for external dashboards (update for Netlify)
-const DASHBOARD_URL = (window.DASHBOARD_URL_OVERRIDE) || 'http://localhost:8001';
+// Global config for external dashboards
+const DASHBOARD_URL = (window.DASHBOARD_URL_OVERRIDE) || 'https://divyanshu-portfolio-y7x1.onrender.com';
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
