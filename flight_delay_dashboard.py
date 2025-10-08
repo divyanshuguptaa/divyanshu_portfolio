@@ -115,6 +115,9 @@ carrier_fig = create_carrier_performance()
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 app.title = "Flight Delay Dashboard 2024"
 
+# Expose the Flask server for Gunicorn
+server = app.server
+
 # ====================================
 # APP LAYOUT
 # ====================================
