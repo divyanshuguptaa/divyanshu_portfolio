@@ -25,25 +25,37 @@ import os
 CSV_URL = os.getenv("CSV_URL")  # Set this in Render environment variables
 
 if CSV_URL:
-    # Production: load from URL (Google Drive)
+    # Production: load from URL (Google Drive) with timeout handling
+    print(f"Attempting to load data from URL...")
+    print(f"This may take a few minutes for large files...")
     try:
-        df = pd.read_csv(CSV_URL)
-        print(f"✓ Loaded data from URL: {CSV_URL}")
+        # Set longer timeout for large file downloads
+        import socket
+        socket.setdefaulttimeout(300)  # 5 minutes timeout
+        df = pd.read_csv(CSV_URL, low_memory=False)
+        print(f"✓ SUCCESS! Loaded data from URL")
+        print(f"✓ Total records: {len(df):,}")
     except Exception as e:
-        print(f"Error loading from URL: {e}")
-        print("Falling back to sample data...")
-        df = pd.read_csv('flight_data_2024_sample.csv')
-        print("✓ Loaded sample data")
+        print(f"⚠ Error loading from URL: {type(e).__name__}: {str(e)[:200]}")
+        print("⚠ Falling back to sample data...")
+        try:
+            df = pd.read_csv('flight_data_2024_sample.csv')
+            print(f"✓ Loaded sample data: {len(df):,} records")
+        except Exception as e2:
+            print(f"✗ CRITICAL ERROR: Cannot load any data: {e2}")
+            raise
 else:
     # Development: load from local file
+    print("No CSV_URL found, loading local data...")
     try:
         # Try full dataset first
-        df = pd.read_csv('flight_data_2024.csv')
-        print("✓ Loaded FULL dataset from local file: flight_data_2024.csv")
+        df = pd.read_csv('flight_data_2024.csv', low_memory=False)
+        print(f"✓ Loaded FULL dataset: {len(df):,} records")
     except FileNotFoundError:
         # Fall back to sample
+        print("Full dataset not found, using sample...")
         df = pd.read_csv('flight_data_2024_sample.csv')
-        print("✓ Loaded sample data from: flight_data_2024_sample.csv")
+        print(f"✓ Loaded sample data: {len(df):,} records")
 
 # Data preprocessing
 df['fl_date'] = pd.to_datetime(df['fl_date'])
@@ -1017,6 +1029,10 @@ if __name__ == '__main__':
     print("Starting dashboard server...")
     print("Features: 12 Interactive Visualizations + 3D Animated Background")
     print("Global Filters: Carrier, Month, Day, Delay Range")
+    print(f"Data loaded: {len(df):,} records")
     print("=" * 80)
-    app.run_server(debug=False, host='0.0.0.0', port=10000)
+    # Use environment variable for port (Render provides this)
+    port = int(os.getenv("PORT", 10000))
+    print(f"Server starting on port {port}...")
+    app.run_server(debug=False, host='0.0.0.0', port=port)
 
