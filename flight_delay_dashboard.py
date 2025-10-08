@@ -27,7 +27,7 @@ CSV_URL = os.getenv("CSV_URL")  # Set this in Render environment variables
 if CSV_URL:
     # Production: load from URL (Google Drive)
     try:
-        df = pd.read_csv(CSV_URL)
+    df = pd.read_csv(CSV_URL)
         print(f"✓ Loaded data from URL: {CSV_URL}")
     except Exception as e:
         print(f"Error loading from URL: {e}")
@@ -35,9 +35,15 @@ if CSV_URL:
         df = pd.read_csv('flight_data_2024_sample.csv')
         print("✓ Loaded sample data")
 else:
-    # Development/Fallback: load from local sample file
+    # Development: load from local file
+    try:
+        # Try full dataset first
+        df = pd.read_csv('flight_data_2024.csv')
+        print("✓ Loaded FULL dataset from local file: flight_data_2024.csv")
+    except FileNotFoundError:
+        # Fall back to sample
     df = pd.read_csv('flight_data_2024_sample.csv')
-    print("✓ Loaded data from local file: flight_data_2024_sample.csv")
+        print("✓ Loaded sample data from: flight_data_2024_sample.csv")
 
 # Data preprocessing
 df['fl_date'] = pd.to_datetime(df['fl_date'])
@@ -66,7 +72,7 @@ df['on_time'] = df['arr_delay'].apply(lambda x: 1 if -15 <= x <= 15 else 0)
 
 # Calculate total delays
 df['total_delay_minutes'] = df[['carrier_delay', 'weather_delay', 'nas_delay', 
-                                  'security_delay', 'late_aircraft_delay']].sum(axis=1)
+                               'security_delay', 'late_aircraft_delay']].sum(axis=1)
 
 print(f"SUCCESS: Loaded {len(df):,} flight records")
 print(f"Date range: {df['fl_date'].min()} to {df['fl_date'].max()}")
@@ -913,7 +919,7 @@ app.layout = html.Div([
             
             # Footer
             html.Hr(style={'borderColor': '#00d4ff', 'borderWidth': '2px', 'margin': '50px 0 20px 0'}),
-            html.Div([
+    html.Div([
                 html.P('✈️ Flight Delay Analytics Dashboard 2024 | Data-Driven Insights for Aviation Excellence',
                       style={'textAlign': 'center', 'color': '#00d4ff', 'fontSize': '1.1em'}),
                 html.P('Featuring 12 Interactive Visualizations with Real-Time Filtering & 3D Animated Background',
