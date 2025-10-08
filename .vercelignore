@@ -1,0 +1,23 @@
+# Python files (dashboard is on Render, not Vercel)
+*.py
+*.pyc
+__pycache__/
+*.csv
+
+# Python dependencies
+requirements.txt
+Procfile
+
+# Data files
+flight_data_*.csv
+*.csv
+
+# Build files
+.venv/
+venv/
+env/
+
+# Documentation
+RENDER_DEPLOYMENT.md
+DEPLOYMENT_GUIDE.md
+

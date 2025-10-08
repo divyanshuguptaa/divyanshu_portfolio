@@ -2,19 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.html",
+      "src": "**/*.{html,css,js,png,jpg,jpeg,gif,svg,pdf}",
       "use": "@vercel/static"
-    },
-    {
-      "src": "flight_delay_dashboard.py",
-      "use": "@vercel/python"
     }
   ],
   "routes": [
-    {
-      "src": "/dashboard",
-      "dest": "/flight_delay_dashboard.py"
-    },
     {
       "src": "/(.*)",
       "dest": "/$1"
