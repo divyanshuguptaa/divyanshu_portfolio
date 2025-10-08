@@ -19,7 +19,19 @@ warnings.filterwarnings('ignore')
 # LOAD AND PREPARE DATA
 # ====================================
 print("Loading flight data...")
-df = pd.read_csv('flight_data_2024_sample.csv')
+import os
+
+# Try to load from environment variable (for production) or local file (for development)
+CSV_URL = os.getenv("CSV_URL")  # Set this in Render environment variables
+
+if CSV_URL:
+    # Production: load from URL
+    df = pd.read_csv(CSV_URL)
+    print(f"Loaded data from URL: {CSV_URL}")
+else:
+    # Development: load from local file
+    df = pd.read_csv('flight_data_2024.csv')
+    print("Loaded data from local file: flight_data_2024.csv")
 
 # Data preprocessing
 df['fl_date'] = pd.to_datetime(df['fl_date'])
@@ -991,9 +1003,8 @@ if __name__ == '__main__':
     print("FLIGHT DELAY ANALYTICS DASHBOARD 2024")
     print("=" * 80)
     print("Starting dashboard server...")
-    print("Opening browser at: http://localhost:8001")
     print("Features: 12 Interactive Visualizations + 3D Animated Background")
     print("Global Filters: Carrier, Month, Day, Delay Range")
     print("=" * 80)
-    app.run_server(debug=True, host='127.0.0.1', port=8001)
+    app.run_server(debug=False, host='0.0.0.0', port=10000)
 
