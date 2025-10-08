@@ -27,7 +27,7 @@ CSV_URL = os.getenv("CSV_URL")  # Set this in Render environment variables
 if CSV_URL:
     # Production: load from URL (Google Drive)
     try:
-    df = pd.read_csv(CSV_URL)
+        df = pd.read_csv(CSV_URL)
         print(f"✓ Loaded data from URL: {CSV_URL}")
     except Exception as e:
         print(f"Error loading from URL: {e}")
@@ -42,7 +42,7 @@ else:
         print("✓ Loaded FULL dataset from local file: flight_data_2024.csv")
     except FileNotFoundError:
         # Fall back to sample
-    df = pd.read_csv('flight_data_2024_sample.csv')
+        df = pd.read_csv('flight_data_2024_sample.csv')
         print("✓ Loaded sample data from: flight_data_2024_sample.csv")
 
 # Data preprocessing
