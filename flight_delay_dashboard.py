@@ -25,18 +25,25 @@ import os
 CSV_URL = os.getenv("CSV_URL")  # Set this in Render environment variables
 
 if CSV_URL:
-    # Production: load from URL (Google Drive) with timeout handling
-    print(f"Attempting to load data from URL...")
-    print(f"This may take a few minutes for large files...")
+    # Production: load full dataset from Google Drive.
+    # Google Drive serves an HTML "can't scan for viruses" interstitial for
+    # files this large instead of the raw CSV, so a plain pd.read_csv(CSV_URL)
+    # silently downloads that HTML page and fails to parse. gdown knows how to
+    # follow the confirmation-token flow and fetch the actual file.
+    print("Attempting to load full dataset from Google Drive...")
+    print("This may take a few minutes for large files...")
     try:
-        # Set longer timeout for large file downloads
-        import socket
-        socket.setdefaulttimeout(300)  # 5 minutes timeout
-        df = pd.read_csv(CSV_URL, low_memory=False)
-        print(f"✓ SUCCESS! Loaded data from URL")
+        import gdown
+        import re
+        match = re.search(r'id=([^&]+)', CSV_URL)
+        file_id = match.group(1) if match else CSV_URL
+        local_path = '/tmp/flight_data_2024.csv'
+        gdown.download(id=file_id, output=local_path, quiet=False)
+        df = pd.read_csv(local_path, low_memory=False)
+        print(f"✓ SUCCESS! Loaded full dataset from Google Drive")
         print(f"✓ Total records: {len(df):,}")
     except Exception as e:
-        print(f"⚠ Error loading from URL: {type(e).__name__}: {str(e)[:200]}")
+        print(f"⚠ Error loading from Google Drive: {type(e).__name__}: {str(e)[:200]}")
         print("⚠ Falling back to sample data...")
         try:
             df = pd.read_csv('flight_data_2024_sample.csv')
